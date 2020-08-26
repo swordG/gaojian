@@ -1,11 +1,10 @@
-#ifndef TEST
-#define TEST
-
+#ifndef TEST_H
+#define TEST_H
 #include "Inventory.h"
-#include "allType.h"
 
 class test
 {
+public:
 	void InsertComSpc1(ComputerSpec &in)
 	{
 		in.setProperties("computerBrand", samsung);
@@ -123,8 +122,8 @@ class test
 	{
 		for (int i = 0; i < output.size(); i++)
 		{
-			cout << "电脑ID：" << output[i].getComputerId << endl;
-			cout << "价格:" << output[i].getPrice << endl << endl;
+			cout << "电脑ID：" << output[i].getComputerId() << endl;
+			cout << "价格:" << output[i].getPrice() << endl << endl;
 		}
 	}
 };

@@ -1,9 +1,5 @@
-#ifndef ALLTYPE
-#define ALLTYPE
-#include "Inventory.h"
-//´æ´¢Êý¾Ý
-map<string, store> computerInformation;
-
+#ifndef ALLTYPE_H
+#define ALLTYPE_H
 enum computerBrand
 {
 	samsung = 1,

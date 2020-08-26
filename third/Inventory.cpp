@@ -1,7 +1,7 @@
 #include "Inventory.h"
-
+map<string, store> computerInformation;
 //将现有写入到库中
-void Inventory::addComputer(string computerId, double price, ComputerSpec comSpec)
+void Inventory::addComputer(string computerId, double price, ComputerSpec &comSpec)
 {
 	store comInfo;
 	comInfo.computerId = computerId;
@@ -27,7 +27,7 @@ Computer Inventory::get(string computerId)
 }
 
 //根据输入的ComputerSpec查找
-vector<Computer> Inventory::search(ComputerSpec  comSpec)
+vector<Computer> Inventory::search(ComputerSpec  &comSpec)
 {
 	vector<Computer> returnComputer;
 	map<string, store>::iterator it = computerInformation.begin();
@@ -37,7 +37,9 @@ vector<Computer> Inventory::search(ComputerSpec  comSpec)
 		{
 			returnComputer.push_back(Computer(it->first,it->second.price));
 		}
+		it++;
 	}
+	return returnComputer;
 }
 
 

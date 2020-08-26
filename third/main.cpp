@@ -6,7 +6,6 @@ int main()
 	Inventory inven;
 	test test1;
 	test1.InsertAllCom(inven);
-
 	ComputerSpec input;
 	test1.getInput(input);
 	vector<Computer> output = inven.search(input);

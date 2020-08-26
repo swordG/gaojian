@@ -1,36 +1,32 @@
-#ifndef INVENTORY
-#define INVENTORY
+#ifndef INVENTORY_H
+#define INVENTORY_H
 
 #include <iostream>
 #include<string>
 #include <map>
 #include <vector>
-
+#include <stdint.h>
 #include "allType.h"
 
 using namespace std;
 
-//测试类
-class test
-{
+class Computer;
+class ComputerSpec;
+class store;
+class Object;
 
-};
 
-struct store
-{
-	string computerId;
-	double price;
-	ComputerSpec comSpec;
-};
+//存储数据
+extern map<string, store> computerInformation;
+
 
 class Inventory
 {
 public:
-	Inventory();
-	void addComputer(string computerId,double price,ComputerSpec comSpec);
+	Inventory(){};
+	void addComputer(string computerId,double price,ComputerSpec &comSpec);
 	Computer get(string computerId);
-	vector<Computer> search(ComputerSpec  comSpec);    //返回一个vector表示数组
-	~Inventory();
+	vector<Computer> search(ComputerSpec  &comSpec);    //返回一个vector表示数组
 };
 
 
@@ -39,6 +35,7 @@ class Computer: public Inventory
 	string computerId;
 	double price;
 public:
+	Computer(){ computerId = "-1"; price = -1; };
 	Computer(string comId, double pri);
 	string getComputerId();
 	double getPrice();
@@ -50,6 +47,7 @@ class ComputerSpec: public Computer
 {
 	map<string, Object> properties;
 public:
+	ComputerSpec(){};
 	bool operator==(const ComputerSpec& b) //重载==运行
 	{
 		return properties == b.properties;
@@ -74,10 +72,19 @@ public:
 	{
 		return to_string(information);
 	}
-	bool operator==(const Object& b) //重载==运行
+	bool operator==(const Object& b) const //重载==运行
 	{
 		return type == b.type && information == b.information;
 	}
 };
+
+class store
+{
+public:
+	string computerId;
+	double price;
+	ComputerSpec comSpec;
+};
+
 
 #endif
