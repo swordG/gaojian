@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Implementation-Title: springboot-login
+Implementation-Version: 1.0-SNAPSHOT
+Built-By: GPHENIXJ
+Implementation-Vendor-Id: com.alibaba
+Build-Jdk: 1.8.0_261
+Implementation-URL: http://projects.spring.io/spring-boot/springboot-l
+ ogin/
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+
