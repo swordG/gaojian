@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        
+<mapper namespace="dao.IAccountDao">
+	<!-- 配置查询所有操作 -->
+		<select id="findAll" resultType="domain.AccountUser">
+		select a.*,u.username,u.address from account a,user u where a.uid =u.id;
+		</select>
+		
+	<resultMap type="domain.User" id="userMap">
+	<id column="id" property="id"></id>
+	<result column="username" property="username"/>
+	<result column="address" property="address"/>
+	<result column="sex" property="sex"/>
+	<result column="birthday" property="birthday"/>
+	<!-- collection是用于建立一对多中集合属性的对应关系
+	ofType用于指定集合元素的数据类型 -->
+	<collection property="accounts" ofType="domain.Account">
+	<id column="accid" property="id"/>
+	<result column="uid" property="uid"/>
+	<result column="money" property="money"/>
+	</collection>
+	</resultMap>
+		
+</mapper>
+
+
+
